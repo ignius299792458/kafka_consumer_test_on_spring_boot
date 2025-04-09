@@ -1,8 +1,8 @@
 package com.ignius.kafka_consumer.config;
 
-import com.fasterxml.jackson.databind.deser.std.StringDeserializer;
 import com.ignius.kafka_consumer.MessagingTopicEnum;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
+import org.apache.kafka.common.serialization.StringDeserializer;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -40,7 +40,7 @@ public class KafkaConsumerConfig {
     }
 
     @Bean
-    public KafkaReceiver<String, String> kafkaReceiver(ReceiverOptions<String, String> options) {
+    public KafkaReceiver<String, String> kafkaReceiver() {
         return KafkaReceiver.create(kafkaReceiverOptions());
     }
 }
